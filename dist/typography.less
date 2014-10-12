@@ -1,0 +1,549 @@
+//  ==========================================================================
+//  .-. .-. .-. .-. . . .-. .-. .-. .-.
+//	|-' |(  |-  |   | | |(  `-. | | |( 
+//	'   ' ' `-' `-' `-' ' ' `-' `-' ' '
+//								by Fuel
+//  ==========================================================================
+
+//  Global settings
+	@import "../../mixins/includes";
+
+// -------------------------------
+//	RESET
+	h1,h2,h3,h4,h5,h6,p,pre{
+		margin:0;
+		text-rendering: optimizeLegibility;
+		font-weight:100;
+	}
+
+
+// @Param: {Int, Int, Int}
+// Returns:
+//	* Type font size in em's
+//	* Type top margin based on baseline and inputted ratio
+//	* Type bottom margin based on baseline and inputted ratio
+//	* Type line height in em's (currently just the baseline line-height) 
+//	* Block element top margin based on inputted ratio
+//	* Block element bottom margin based on inputted ratio 
+
+.calculateEm(@size: @base-font-size, @top-ratio: 1, @bottom-ratio:1){
+		
+		@topRatio:@top-ratio*@fontScaleRatio;
+		@bottomRatio:@bottom-ratio*@fontScaleRatio;
+
+	//	Calcualte the font size in em's
+		@em-Size: round((@size / @base-font-size) + 0em, 3);
+
+	//	Calculate the vertical rhythm
+		@em-top-margin: round( ((@em-Size/2)*unit(@baseline-lineheight/100)) / @topRatio, 3);
+		@em-bottom-margin: round( (@em-Size/2)*unit(@baseline-lineheight/100) / @bottomRatio, 3);
+
+	//	Calculate block rhythm (articles, div.article)
+		@em-block-top-margin: round( ((@em-Size/2)*unit(@baseline-lineheight/100)) / @topRatio, 3);
+		@em-block-bottom-margin: round( (@em-Size/2)*unit(@baseline-lineheight/100) / @bottomRatio, 3);
+
+	//	Calculate line height
+		@em-line-height:@baseline-lineheight;
+}
+
+.establish-baseline(@font-size: @base-font-size){
+	* html {
+		font-size:100% * (@font-size / @browser-default-font-size);
+	}
+	html {
+		.calculateEm();
+		font-size:@em-Size;
+		-webkit-text-size-adjust:100%; 
+		-ms-text-size-adjust:100%;
+	}
+}
+.establish-baseline();
+
+.writeFontStyles(@font: inherit, @stack: inherit, @weight: 100, @transform: inherit){
+	font-weight:@weight;
+	font-family:@font, @stack;
+	text-transform:@transform;
+}
+
+//	------------------------ Font styles ------------------------ //
+
+	h1{
+		//	Options
+			@h1:@h1-px*@fontScaleRatio;
+			@h1-font:@theme-h1;
+			@h1-transform:uppercase;
+ 
+		font-size:@em-Size;
+		margin-top:@em-top-margin;
+		margin-bottom:@em-bottom-margin;
+		line-height:100%;
+		//line-height:@em-line-height;
+		.calculateEm(@h1, 3, 4);
+		.writeFontStyles(@h1-font, @fontstack, 100, @h1-transform);
+
+		small{
+			font-weight:100;
+		} 
+	}
+	h2{
+		//	Options
+			@h2:@h2-px*@fontScaleRatio;
+			@h2-font:@theme-h1;
+			@h2-transform:uppercase;
+
+		font-size:@em-Size;
+		margin-top:@em-top-margin;
+		margin-bottom:@em-bottom-margin;
+		line-height:@em-line-height;
+		.calculateEm(@h2, 2, 1.7);
+		.writeFontStyles(@h2-font, @fontstack, 100, @h2-transform);
+
+		small{
+			font-weight:100;
+		}
+	}
+	h3{
+		//	Options
+			@h3:@h3-px*@fontScaleRatio;
+			@h3-font:@theme-h3;
+			@h3-transform:uppercase;
+
+		font-size:@em-Size;
+		margin-top:@em-top-margin;
+		margin-bottom:@em-bottom-margin;
+		line-height:@em-line-height;
+		.calculateEm(@h3, 1.3, 1.2);
+		.writeFontStyles(@h3-font, @fontstack, 100, @h3-transform);
+
+		small{
+			font-weight:100;
+		}
+	}
+	h4{
+		//	Options
+			@h4:@h4-px*@fontScaleRatio;
+			@h4-font:@theme-h4;
+			@h4-transform:uppercase;
+
+		font-size:@em-Size;
+		margin-top:@em-top-margin;
+		margin-bottom:@em-bottom-margin;
+		line-height:@em-line-height;
+		.calculateEm(@h4, 1, 0.75);
+		.writeFontStyles(@h4-font, @fontstack, 100, @h4-transform);
+
+		small{
+			font-weight:100;
+		}
+	}
+	h5{
+		//	Options
+			@h5:@h5-px*@fontScaleRatio;
+			@h5-font:@theme-h5;
+			@h5-transform:uppercase;
+
+		font-size:@em-Size;
+		margin-top:@em-top-margin;
+		margin-bottom:@em-bottom-margin;
+		line-height:@em-line-height;
+		.calculateEm(@h5, 1, 0.65);
+		.writeFontStyles(@h5-font, @fontstack, 100, @h5-transform);
+
+		small{
+			font-weight:100;
+		}
+	}
+	h6{
+		//	Options
+			@h6:@h6-px*@fontScaleRatio;
+			@h6-font:@theme-h6;
+			@h6-transform:uppercase;
+
+		font-size:@em-Size;
+		margin-top:@em-top-margin;
+		margin-bottom:@em-bottom-margin;
+		line-height:@em-line-height;
+		.calculateEm(@h6, 1, 0.65);
+		.writeFontStyles(@h6-font, @fontstack, 100, @h6-transform);
+
+		small{
+			font-weight:100;
+		}
+	}
+
+//	Paragraph
+	p {
+		//	Options
+			@p-size:@p-px*@fontScaleRatio;
+			@p-font:@theme-p;
+			@p-transform:none;
+
+			@line-height-adjust:1.1;
+
+		font-size:@em-Size;
+		margin-top:@em-top-margin;
+		margin-bottom:@em-bottom-margin;
+		line-height:@em-line-height*@line-height-adjust;
+		.calculateEm(@p-size, 1, 0.55);
+		.writeFontStyles(@p-font, @fontstack, 100);
+
+		& + h1,
+		& + h2,
+		& + h3,
+		& + h4,
+		& + h5,
+		& + h6{
+			margin-top:@em-top-margin*2;
+		}
+	}
+
+//	Article
+	article,
+	.article{
+		//margin-top:@em-block-top-margin;
+		//margin-bottom:@em-block-bottom-margin;
+		//.calculateEm(48, 2, 0.65);
+
+		&:first-of-type,
+		&:first-child,
+		.first{
+			margin-top:0;
+		}
+	}
+
+//	Default body
+	body{
+		font-family:@fontstack;
+	}
+
+	small{
+		display:block;
+		font-size:50%;
+	}
+
+//	------------------------ Weights ------------------------ //
+	@weak:100;
+	@strong:800;
+	.weak,
+	.thin{
+		font-weight:@weak;
+	}
+
+	.strong,
+	strong{
+		font-weight:@strong;
+	}
+
+//	------------------------ Tables ------------------------ //
+	@th-size:15;
+	@td-size:14;
+	th{
+		font-size:@em-Size;
+		.calculateEm(@th-size);
+		font-weight:@strong;
+	}
+	td{
+		font-size:@em-Size;
+		.calculateEm(@td-size);
+	}
+
+//	------------------------ Buttons / Inputs ------------------------ //
+	@btn-font-size:1em;
+	.btn,
+	button.btn{
+		//font-size:@em-Size;
+		//.calculateEm(@btn-font-size);
+		text-transform:uppercase;
+	}
+	.pre-input{
+		//font-size:@em-Size;
+		//.calculateEm(@btn-font-size);
+	}
+
+//	------------------------ Text links ------------------------ //
+	@link-decoration:underline;
+	a {
+		&:link{
+			text-decoration:@link-decoration;
+		}
+	}
+
+//	------------------------ Inline quotes ------------------------ //
+	q {
+		&:before{
+			content:"\201C";
+			margin:0 0.05em 0 0.15em;
+		}
+		&:after{
+			content:"\201D";
+			margin:0 0.15em 0 0.05em;
+		}
+		font-style:italic;
+	}
+
+//	------------------------ Block quotes ------------------------ //
+	blockquote{
+
+		//	Options
+			@p-size:@p-px*@fontScaleRatio;
+			@p-font:@theme-p;
+			@p-transform:none;
+
+			position:relative;
+			padding:0;
+			width:auto;
+
+			font-size:@em-Size;
+			margin-top:@em-top-margin;
+			margin-bottom:@em-bottom-margin;
+			margin-left:0;
+			margin-right:0;
+
+			line-height:@em-line-height;
+			.calculateEm(@p-size, 1, 0.55);
+			.writeFontStyles(@p-font, @fontstack, 100);
+
+			& + h1,
+			& + h2,
+			& + h3,
+			& + h4,
+			& + h5,
+			& + h6{
+				margin-top:@em-top-margin*2;
+			}
+
+			font-size:200%;
+	}
+
+//	------------------------ Horizontal rule ------------------------ //
+	hr{
+		margin-top:@em-block-top-margin;
+		margin-bottom:@em-block-bottom-margin;
+		.calculateEm(48, 2, 0.65);
+
+		display:block;
+	    height:0;
+	    clear:both;
+	    background:transparent;
+	    border:0;
+	}
+
+//	------------------------ Del / faint ------------------------ //
+	del,
+	.faint{
+		.opacity(0.7);
+	}
+
+//	------------------------ Italic ------------------------ //
+	em{
+		font-style:italic;
+
+		&.cursive{
+			text-transform:none;
+		}
+	}
+
+//	------------------------ Img ------------------------ //
+	img {
+		position:relative;
+		-ms-interpolation-mode: bicubic; 
+
+		&.inline{
+			display:inline;
+		}
+	}
+
+//	------------------------ Audio ------------------------ //
+	audio {
+		width:100%;
+	}
+
+//For divs and articles, scale all the things
+.fontScale(@scale:1, @type:desktop){
+
+	.getType(@t) when (@t = desktop){
+		&.@{pre-xxsmall-class}{
+			font-size:60%/@scale;
+		}
+		&.@{pre-xsmall-class}{
+	    	font-size:75%/@scale;
+	    }
+	    &.@{pre-small-class}{
+	    	font-size:90%/@scale;
+	    }
+	    &.@{pre-large-class}{
+	    	font-size:110%/@scale;
+	    }
+	    &.@{pre-xlarge-class}{
+	    	font-size:125%/@scale;
+	    }
+	    &.@{pre-xxlarge-class}{
+	    	font-size:150%/@scale;
+	    }
+	}
+	.getType(@t) when (@t = mobile){
+		&.@{pre-xxsmall-class}{
+			font-size:105%/@scale;
+		}
+		&.@{pre-xsmall-class}{
+	    	font-size:120%/@scale;
+	    }
+	    &.@{pre-small-class}{
+	    	font-size:135%/@scale;
+	    }
+	    &.@{pre-large-class}{
+	    	font-size:170%/@scale;
+	    }
+	    &.@{pre-xlarge-class}{
+	    	font-size:185%/@scale;
+	    }
+	    &.@{pre-xxlarge-class}{
+	    	font-size:200%/@scale;
+    	}
+	}
+	.getType(@type);
+}
+
+//	------------------------ Paragraphs extras ------------------------ //
+
+* {
+	
+	//	Create our default scaling
+	.fontScale();
+
+	&.@{pre-align-left-class}{
+		text-align:left;
+		> * {
+			text-align:left;
+		}
+	}
+	&.@{pre-align-center-class}{
+		text-align:center;
+		> * {
+			text-align:center;
+		}
+	}
+	&.@{pre-align-right-class}{
+		text-align:right;
+		> * {
+			text-align:right;
+		}
+		> h1,
+		> h2,
+		> h3,
+		> h4,
+		> h5,
+		> h6{
+			padding-right:0;
+		}
+	}
+
+	//	Justification
+	&.@{pre-justified-class}{
+		text-align:justify;
+		-ms-word-break: break-all;
+		     word-break: break-all;
+		     word-break: break-word;
+
+		-webkit-hyphens: auto;
+		   -moz-hyphens: auto;
+		        hyphens: auto;
+
+		padding-right:0.75em;
+	}
+
+	//	Nicefy
+	@pre-headline-padding-right:1em;
+	@pre-newparagraph-indent:1em;
+	@pre-fancyfirstparagraph:false;
+	@pre-headline-small-offset:60%;
+
+	&.@{pre-niceify}{
+
+		//	Headline right padding (if required)
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6{
+			padding-right:@pre-headline-padding-right;	
+		}
+
+		//	Fancy first paragraph
+			.getFancyFirstParagraph(@a) when (@a = true){
+				&:first-of-type,
+				&:first-child{
+
+					&:after{
+						content: '';
+						display: block;
+						margin:2em auto;
+						width:150px;
+						height:1px;
+						background-color:lighten(#000, @pre-headline-small-offset);
+					}
+				}
+			}
+			.getFancyFirstParagraph(@pre-fancyfirstparagraph);
+
+		// 	Indent
+			&.@{pre-indent-class},
+			& + p {
+				text-indent:@pre-newparagraph-indent;
+			}
+	}
+}
+
+//  ==========================================================================
+//  RESPONSIVE
+//  ==========================================================================
+
+.MobileCSS(@orientation){
+	body{
+        font-size:0.8em;
+    }
+
+	* {
+		.@{pre-justified-class}{
+			padding-right:0;
+		}
+
+		.removeTapColor();
+	}
+
+	
+}
+.TabletCSS(@orientation){
+    body{
+        font-size:0.9em;
+    }
+}
+.DesktopCSS(){
+    body{
+        font-size:1em;
+    }
+}
+
+@media @SmartphonesPortraitAndLandscape {.MobileCSS(portraitandlandscape);}
+@media @SmartphonesLandscape            {.MobileCSS(landscape);}
+@media @SmartphonesPortrait             {.MobileCSS(portrait);}
+@media @iPadPortraitAndLandscape        {.TabletCSS(portraitandlandscape);}
+@media @iPadLandscape                   {.TabletCSS(landscape);}
+@media @iPadPortrait                    {.TabletCSS(portrait);}
+@media @DesktopAndLaptop                {.DesktopCSS();}
+
+
+//  ==========================================================================
+//  TYPOGRAPHY CLASSES
+//  ==========================================================================
+	@pre-justified-class: 				~"pre-justified";
+	@pre-indent-class:					~"pre-indent";
+	@pre-align-left-class:				~"pre-align-left";
+	@pre-align-center-class:			~"pre-align-center";
+	@pre-align-right-class:				~"pre-align-right";
+	@pre-metadata:						~"pre-metadata";
+	@pre-metadivider:					~"pre-metadivider";
+	@pre-niceify:						~"pre-niceify";
+	@pre-article:						~"pre-article";
+	@pre-scale:							~"pre-scale"; 

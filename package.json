@@ -1,0 +1,160 @@
+{
+	"id": "typography",
+    "name": "Typography",
+    "expandable": false,
+    "is_setting": true,
+    "is_hidden": false,
+    "priority": 4,
+    "version": "1.0",
+    "is_custom": false,
+    "details": {
+        "description": "While some of these settings require the 'type' module added, you can declare your font variables for use. For example, if you want to use a @awesome as your new declared web font, simply reference the font-family value."
+    },
+	"fields": [
+        {
+            "name": "font-bold",
+            "value": "'Conv_GillSansStd-Bold'",
+            "meta": "string"
+        },
+        {
+            "name": "font-regular",
+            "value": "'Conv_GillSansStd'",
+            "meta": "string"
+        },
+        {
+            "name": "font-light",
+            "value": "'Conv_GillSansStd-Light'",
+            "meta": "string"
+        },
+        {
+            "name": "fontstack",
+            "value": "'Calibri, sans-serif'",
+            "meta": "string"
+        },
+        {
+            "name": "theme-h1",
+            "value": "@font-regular, @fontstack",
+            "meta": "string"
+        },
+        {
+            "name": "theme-h2",
+            "value": "@font-regular, @fontstack",
+            "meta": "string"
+        },
+        {
+            "name": "theme-h3",
+            "value": "@font-regular, @fontstack",
+            "meta": "string"
+        },
+        {
+            "name": "theme-h4",
+            "value": "@font-light, @fontstack",
+            "meta": "string"
+        },
+        {
+            "name": "theme-h5",
+            "value": "@font-light, @fontstack",
+            "meta": "string"
+        },
+        {
+            "name": "theme-h6",
+            "value": "@font-light, @fontstack",
+            "meta": "string"
+        },
+        {
+            "name": "theme-p",
+            "value": "@font-light, @fontstack",
+            "meta": "string"
+        },
+        {
+            "name": "fontScaleRatio",
+            "value": "1.0",
+            "meta": "string"
+        },
+        {
+            "name": "baseline-lineheight",
+            "value": "120%",
+            "meta": "string"
+        },
+        {
+            "name": "browser-default-font-size",
+            "value": "16",
+            "meta": "string"
+        },
+        {
+            "name": "base-font-size",
+            "value": "19",
+            "meta": "string"
+        },
+        {
+            "name": "base-line-height",
+            "value": "25",
+            "meta": "string"
+        },
+        {
+            "name": "h1-px",
+            "value": "45",
+            "meta": "string"
+        },
+        {
+            "name": "h2-px",
+            "value": "30",
+            "meta": "string"
+        },
+        {
+            "name": "h3-px",
+            "value": "25",
+            "meta": "string"
+        },
+        {
+            "name": "h4-px",
+            "value": "20",
+            "meta": "string"
+        },
+        {
+            "name": "h5-px",
+            "value": "18",
+            "meta": "string"
+        },
+        {
+            "name": "h6-px",
+            "value": "15",
+            "meta": "string"
+        },
+        {
+            "name": "p-px",
+            "value": "22",
+            "meta": "string"
+        },
+        {
+            "name": "pre-xxsmall-class",
+            "value": "~\"pre-xxsmall\"",
+            "meta": "string"
+        },
+        {
+            "name": "pre-xsmall-class",
+            "value": "~\"pre-xsmall\"",
+            "meta": "string"
+        },
+        {
+            "name": "pre-small-class",
+            "value": "~\"pre-small\"",
+            "meta": "string"
+        },
+        {
+            "name": "pre-large-class",
+            "value": "~\"pre-large\"",
+            "meta": "string"
+        },
+        {
+            "name": "pre-xlarge-class",
+            "value": "~\"pre-xlarge\"",
+            "meta": "string"
+        },
+        {
+            "name": "pre-xxlarge-class",
+            "value": "~\"pre-xxlarge\"",
+            "meta": "string"
+        }
+    ]
+}
