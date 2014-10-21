@@ -1,10 +1,6 @@
 {
 	"id": "typography",
     "name": "Typography",
-    "expandable": false,
-    "is_setting": true,
-    "is_hidden": false,
-    "priority": 4,
     "version": "1.0",
     "is_custom": false,
     "is_editable": true,
