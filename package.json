@@ -7,6 +7,7 @@
     "priority": 4,
     "version": "1.0",
     "is_custom": false,
+    "is_editable": true,
     "details": {
         "description": "While some of these settings require the 'type' module added, you can declare your font variables for use. For example, if you want to use a @awesome as your new declared web font, simply reference the font-family value."
     },
@@ -128,33 +129,33 @@
         },
         {
             "name": "pre-xxsmall-class",
-            "value": "~\"pre-xxsmall\"",
-            "meta": "string"
+            "value": "pre-xxsmall",
+            "meta": "multistring"
         },
         {
             "name": "pre-xsmall-class",
-            "value": "~\"pre-xsmall\"",
-            "meta": "string"
+            "value": "pre-xsmall",
+            "meta": "multistring"
         },
         {
             "name": "pre-small-class",
-            "value": "~\"pre-small\"",
-            "meta": "string"
+            "value": "pre-small",
+            "meta": "multistring"
         },
         {
             "name": "pre-large-class",
-            "value": "~\"pre-large\"",
-            "meta": "string"
+            "value": "pre-large",
+            "meta": "multistring"
         },
         {
             "name": "pre-xlarge-class",
-            "value": "~\"pre-xlarge\"",
-            "meta": "string"
+            "value": "pre-xlarge",
+            "meta": "multistring"
         },
         {
             "name": "pre-xxlarge-class",
-            "value": "~\"pre-xxlarge\"",
-            "meta": "string"
+            "value": "pre-xxlarge",
+            "meta": "multistring"
         }
     ]
 }
