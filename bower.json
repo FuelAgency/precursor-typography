@@ -1,14 +1,18 @@
 {
   "name": "precursor-typography",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "ignore": [
     ".gitignore",
-    ".gitattributes",
-    ".bower.json",
-    "bower.json"
+    ".gitattributes"
+  ],
+  "main": [
+    "typography.less",
+    "typography.css"
   ],
   "keywords": [
-    "precursor"
+    "precursor",
+    "typography",
+    "fuel"
   ],
   "is_editable": true
 }
